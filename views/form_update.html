@@ -1,0 +1,61 @@
+{{ template "header" .}}
+
+<div class="content">
+  <h3>Update Product</h3>
+  <form action="/edit-product" method="post">
+    <input id="id" name="id" value="{{.Prod.ID}}" hidden />
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        name="name"
+        value="{{.Prod.Name}}"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Price</label>
+      <input
+        type="number"
+        class="form-control"
+        id="price"
+        name="price"
+        value="{{.Prod.Price}}"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Quantity</label>
+      <input
+        type="number"
+        class="form-control"
+        id="quantity"
+        name="quantity"
+        value="{{.Prod.Quantity}}"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Description</label>
+      <textarea
+        rows="3"
+        class="form-control"
+        id="description"
+        name="description"
+      >
+{{.Prod.Description}}</textarea
+      >
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Image</label>
+      <input type="file" class="form-control-file" id="image" />
+    </div>
+
+    <div class="mb-3">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>
+
+{{ template "footer" .}}

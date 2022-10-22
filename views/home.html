@@ -1,0 +1,53 @@
+{{ template "header" .}}
+
+<body>
+  <main>
+    <section class="py-5 text-center container">
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="fw-light">Welcome</h1>
+          {{if .User.Name}}
+          <p class="lead text-muted">{{.User.Name}}</p>
+          {{end}}
+
+          <p>
+            {{if .User.Name}}
+            <a href="/create-product" class="btn btn-primary my-2"
+              >Create Product</a
+            >
+            {{end}}
+            <!-- <a href="#" class="btn btn-secondary my-2">Secondary action</a> -->
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+      <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          {{ range .Product}} {{template "card_item" . }} {{end}}
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-muted py-5">
+    <div class="container">
+      <p class="float-end mb-1">
+        <a href="#">Back to top</a>
+      </p>
+      <p class="mb-1">
+        Album example is &copy; Bootstrap, but please download and customize it
+        for yourself!
+      </p>
+      <p class="mb-0">
+        New to Bootstrap? <a href="/">Visit the homepage</a> or read our
+        <a href="../getting-started/introduction/">getting started guide</a>.
+      </p>
+    </div>
+  </footer>
+
+  <script src="/public/javascripts/bootstrap.bundle.min.js"></script>
+</body>
+
+{{ template "footer" .}}
